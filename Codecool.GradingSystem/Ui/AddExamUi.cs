@@ -9,7 +9,7 @@ public class AddExamUi
 
     public AddExamUi()
     {
-        _examRepository = new ExamRepository();
+        _examRepository = ExamRepository.GetInstance();
     }
 
     public void AddExam()

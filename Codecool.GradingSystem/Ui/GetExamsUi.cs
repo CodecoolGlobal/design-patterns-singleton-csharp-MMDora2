@@ -8,7 +8,7 @@ public class GetExamsUi
 
     public GetExamsUi()
     {
-        _examRepository = new ExamRepository();
+        _examRepository = ExamRepository.GetInstance();
     }
 
     public void ShowExams()

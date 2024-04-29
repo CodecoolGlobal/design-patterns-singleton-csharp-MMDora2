@@ -5,12 +5,21 @@ namespace Codecool.GradingSystem.Ui;
 
 public class AddExamUi
 {
-    private readonly ExamRepository _examRepository;
+    //Taks1:
+    // private readonly ExamRepository _examRepository;
 
-    public AddExamUi()
+    // public AddExamUi()
+    // {
+    //     _examRepository = ExamRepository.GetInstance();
+    // }
+
+    private readonly IExamRepository _examRepository;
+
+    public AddExamUi(IExamRepository examRepository)
     {
-        _examRepository = ExamRepository.GetInstance();
+        _examRepository = examRepository;
     }
+
 
     public void AddExam()
     {
@@ -18,30 +27,30 @@ public class AddExamUi
         var studentName = GetStudentName();
         var examName = GetExamName();
         var examGrade = GetExamGrade();
-        
+
         _examRepository.AddExam(new Exam(examDate, studentName, examName, examGrade));
-        
+
         Console.WriteLine("Exam added.");
     }
-    
+
     public static DateTime GetExamDate()
     {
         Console.Write("Exam date: ");
         return DateTime.Parse(Console.ReadLine());
     }
-    
+
     public static string GetStudentName()
     {
         Console.Write("Student name: ");
         return Console.ReadLine();
     }
-    
+
     public static string GetExamName()
     {
         Console.Write("Exam name: ");
         return Console.ReadLine();
     }
-    
+
     public static Grade GetExamGrade()
     {
         Console.Write("Exam grade: ");

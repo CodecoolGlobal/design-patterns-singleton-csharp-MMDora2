@@ -4,17 +4,24 @@ namespace Codecool.GradingSystem.Ui;
 
 public class GetExamsUi
 {
+    //Task1:
+    //private readonly IExamRepository _examRepository;
+
+    // public GetExamsUi()
+    // {
+    //     _examRepository = ExamRepository.GetInstance();
+    // }
+
     private readonly IExamRepository _examRepository;
 
-    public GetExamsUi()
+    public GetExamsUi(IExamRepository examRepository)
     {
-        _examRepository = ExamRepository.GetInstance();
+        _examRepository = examRepository;
     }
-
     public void ShowExams()
     {
         var exams = _examRepository.GetExams().ToList();
-        
+
         if (!exams.Any())
         {
             Console.WriteLine("No exams in the database.");

@@ -1,21 +1,30 @@
-﻿namespace Codecool.GradingSystem.Ui;
+﻿using Codecool.GradingSystem.Repository;
+
+namespace Codecool.GradingSystem.Ui;
 
 public class UiSelector
 {
     private readonly AddExamUi _addExamUi;
     private readonly GetExamsUi _getExamsUi;
 
-    public UiSelector()
+    public UiSelector(IExamRepository examRepository)
     {
-        _addExamUi = new AddExamUi();
-        _getExamsUi = new GetExamsUi();
+        _addExamUi = new AddExamUi(examRepository);
+        _getExamsUi = new GetExamsUi(examRepository);
     }
+
+    //Task1:
+    // public UiSelector()
+    //{
+    //   _addExamUi = new AddExamUi();
+    // _getExamsUi = new GetExamsUi();
+    //}
 
     public void SelectUi()
     {
         Console.WriteLine("Select a UI to show: 1 - Add exam, 2 - View exams, 3 - Exit");
         var input = Console.ReadLine();
-        
+
         switch (input)
         {
             case "1":

@@ -5,21 +5,12 @@ namespace Codecool.GradingSystem.Ui;
 
 public class AddExamUi
 {
-    //Taks1:
-    // private readonly ExamRepository _examRepository;
-
-    // public AddExamUi()
-    // {
-    //     _examRepository = ExamRepository.GetInstance();
-    // }
-
     private readonly IExamRepository _examRepository;
 
-    public AddExamUi(IExamRepository examRepository)
+    public AddExamUi()
     {
-        _examRepository = examRepository;
+         _examRepository = ExamRepository.GetInstance();
     }
-
 
     public void AddExam()
     {

@@ -7,13 +7,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        //Task1:
-        // var uiSelector = new UiSelector();
-        // uiSelector.SelectUi();
-
         IExamRepository examRepository = new ExamRepository();
 
-        // Injektáljuk az ExamRepository példányát az UiSelector konstruktorába
+        //Inject the instance of ExamRepository into the UiSelector constructor
         var uiSelector = new UiSelector(examRepository);
         uiSelector.SelectUi();
     }

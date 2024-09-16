@@ -4,20 +4,13 @@ namespace Codecool.GradingSystem.Ui;
 
 public class GetExamsUi
 {
-    //Task1:
-    //private readonly IExamRepository _examRepository;
+   private readonly IExamRepository _examRepository;
 
-    // public GetExamsUi()
-    // {
-    //     _examRepository = ExamRepository.GetInstance();
-    // }
-
-    private readonly IExamRepository _examRepository;
-
-    public GetExamsUi(IExamRepository examRepository)
+    public GetExamsUi()
     {
-        _examRepository = examRepository;
+     _examRepository = ExamRepository.GetInstance();
     }
+    
     public void ShowExams()
     {
         var exams = _examRepository.GetExams().ToList();
